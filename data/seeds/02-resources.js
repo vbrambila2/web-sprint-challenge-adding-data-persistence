@@ -5,7 +5,7 @@ exports.seed = function(knex) {
     {resource_name: 'plywood', resource_description: "quarter inch thickness"},
     {resource_name: 'nails'},
     {resource_name: 'ladder', resource_description: "extends up to 20 feet"},
-    {resource_name: 'macbook', resource_description: "13 inch macbook pro"},
+    {resource_name: 'laptop', resource_description: "13 inch laptop pro"},
   ]);
 };
 
