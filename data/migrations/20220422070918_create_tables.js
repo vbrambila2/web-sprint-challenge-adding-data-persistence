@@ -6,7 +6,7 @@ exports.up = function(knex) {
         tbl.text('project_description');
         tbl.integer('project_completed')
             .notNullable()
-            .defaultTo(0);
+            .defaultTo(false);
     })
     .createTable('resources', tbl => {
         tbl.increments('resource_id');
@@ -22,24 +22,30 @@ exports.up = function(knex) {
         tbl.text('task_notes');
         tbl.text('task_completed')
             .notNullable()
-            .defaultTo(0);
+            .defaultTo(false);
         tbl.integer('project_id')
             .unsigned()
             .notNullable()
             .references('project_id')
-            .inTable('projects');      
+            .inTable('projects')
+            .onUpdate('CASCADE')
+            .onDelete('CASCADE');    
     })
     .createTable('project_resources', tbl => {
         tbl.integer('resource_id')
             .unsigned()
             .notNullable()
             .references('resource_id')
-            .inTable('resources');  
+            .inTable('resources')
+            .onUpdate('CASCADE')
+            .onDelete('CASCADE');
         tbl.integer('project_id')
             .unsigned()
             .notNullable()
             .references('project_id')
-            .inTable('projects');  
+            .inTable('projects')
+            .onUpdate('CASCADE')
+            .onDelete('CASCADE');  
     })
 };
 
