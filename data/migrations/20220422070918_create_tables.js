@@ -51,6 +51,8 @@ exports.down = function(knex) {
         .dropTableIfExists('project_resources')
 };
 
+//ADD ONDELETE AND ONUPDATE to foreign keys!!!!!
+
 //projects 
 //project_id - primary key
 //project_name
